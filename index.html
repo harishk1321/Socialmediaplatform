@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MySocial</h1>
+        <nav>
+            <ul>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/feed">Feed</a></li>
+                <li><a href="/settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="user-profile">
+            <h2>User Profile</h2>
+            <p>Username: <span id="username">JohnDoe</span></p>
+            <button onclick="editProfile()">Edit Profile</button>
+        </section>
+        <section id="posts">
+            <h2>Posts</h2>
+            <div class="post" id="post1">
+                <p><strong>JohnDoe:</strong> This is my first post!</p>
+                <button onclick="likePost(1)">Like</button>
+                <span id="likes1">0 Likes</span>
+                <button onclick="commentPost(1)">Comment</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        function likePost(postId) {
+    const likesElement = document.getElementById(`likes${postId}`);
+    const currentLikes = parseInt(likesElement.textContent);
+    likesElement.textContent = `${currentLikes + 1} Likes`;
+}
+
+function commentPost(postId) {
+    const comment = prompt("Enter your comment:");
+    if (comment) {
+        alert(`Comment added: ${comment}`);
+    }
+}
+
+    </script>
+</body>
+</html>
